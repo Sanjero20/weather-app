@@ -17,21 +17,33 @@
       <i class="fa fa-cloud" aria-hidden="true"></i>
       <h1>Weather App</h1>
     </header>
+
     <form class="search-bar">
       <input
         type="text"
         name="location"
         id="location"
-        placeholder="Enter your location"
+        placeholder="Search City"
       />
       <button id="search">
         <i class="fa fa-search" aria-hidden="true"></i>
       </button>
     </form>
 
-    <main class="weather-info">
+    <main class="weather-info hide">
       <div class="loader hide"></div>
-      <!-- Insert a component containing the weather details -->
+      <div class="weather-data hide">
+        <h1 class="location"></h1>
+        <div class="temperature">
+          <i class="fa fa-thermometer-empty" aria-hidden="true"> </i>
+          <p class="temp"></p>
+        </div>
+        <div class="weather">
+          <h2 class="type"></h2>
+          <img class="icon" alt="weather-icon.png" />
+          <p class="description"></p>
+        </div>
+      </div>
     </main>
 
     <footer>Copyright &copy; Sanjero 2022</footer>
