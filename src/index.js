@@ -1,29 +1,21 @@
-const API_KEY = '35c2fabe2299aa17c5051b992e8f52bd';
+import { getWeatherData } from './weather';
 
-const location = 'manila';
-const url = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
+const location = 'Manila';
 
-const getData = async () => {
-  const weather = await fetch(url);
-  const weatherData = await weather.json();
+// getWeatherData(location).then(data => {
+//   console.log(data);
+// });
 
-  return weatherData;
-};
+const searchBar = document.querySelector('.search-bar');
+const mainContainer = document.querySelector('.weather-info');
+const loadingBar = document.querySelector('.loader');
 
-getData().then(data => {
-  console.log(data);
+searchBar.classList.add('adjust');
 
-  const details = data.weather[0];
-  console.log(details);
+searchBar.addEventListener('submit', e => {
+  e.preventDefault();
+  searchBar.classList.add('adjust');
 
-  const location = data.name;
-  console.log(`Location: ${location}`);
-
-  const temp = data.main.temp;
-  const celsius = kelvinToCelcius(temp);
-  console.log(`Temperature: ${celsius.toFixed(2)}°C`);
+  mainContainer.classList.remove('hide');
+  loadingBar.classList.remove('hide');
 });
-
-function kelvinToCelcius(k) {
-  return k - 273.15;
-}

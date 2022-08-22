@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=document.querySelector(".search-bar"),t=document.querySelector(".weather-info"),s=document.querySelector(".loader");e.classList.add("adjust"),e.addEventListener("submit",(r=>{r.preventDefault(),e.classList.add("adjust"),t.classList.remove("hide"),s.classList.remove("hide")}))})();

@@ -5,8 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="main.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <i class="fa fa-cloud" aria-hidden="true"></i>
+      <h1>Weather App</h1>
+    </header>
+    <form class="search-bar">
+      <input
+        type="text"
+        name="location"
+        id="location"
+        placeholder="Enter your location"
+      />
+      <button id="search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <main class="weather-info">
+      <div class="loader hide"></div>
+      <!-- Insert a component containing the weather details -->
+    </main>
+
+    <footer>Copyright &copy; Sanjero 2022</footer>
+  </body>
 </html>
