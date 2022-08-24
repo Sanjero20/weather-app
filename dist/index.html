@@ -18,23 +18,26 @@
       <h1>Weather App</h1>
     </header>
 
-    <form class="search-bar">
-      <input
-        type="text"
-        name="location"
-        id="location"
-        placeholder="Search City"
-      />
-      <button id="search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-      </button>
-    </form>
+    <main id="main-container" class="center-column">
+      <form class="search-bar center">
+        <input
+          type="text"
+          name="location"
+          id="location"
+          placeholder="Search City"
+          autocomplete="off"
+        />
+        <button id="search-icon">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </form>
 
-    <main class="weather-info hide">
-      <div class="loader hide"></div>
-      <div class="weather-data hide">
-        <!-- Insert weather data using javascirpt -->
-      </div>
+      <section class="weather-info hide">
+        <div class="loader hide"></div>
+        <div class="weather-data hide center-column">
+          <!-- Insert weather data using javascirpt -->
+        </div>
+      </section>
     </main>
 
     <footer>Copyright &copy; Sanjero 2022</footer>
@@ -46,7 +49,7 @@
         <i class="fa fa-thermometer-empty" aria-hidden="true"> </i>
         <p class="temp"></p>
       </div>
-      <div class="weather">
+      <div class="weather center-column">
         <h2 class="type"></h2>
         <img class="icon" alt="" />
         <p class="description"></p>

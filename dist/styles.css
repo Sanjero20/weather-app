@@ -37,10 +37,29 @@ footer {
   padding-bottom: 0.5em;
 }
 
-.search-bar {
+/* General classes */
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Non-general classes */
+#main-container {
+  height: 450px;
+  position: relative;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Search Bar */
+.search-bar {
   padding-top: 0.5em;
   gap: 0.75em;
   transition: all 500ms ease;
@@ -52,7 +71,7 @@ footer {
 }
 
 .search-bar.adjust {
-  transform: translate(-50%, -400%);
+  top: 1.5em;
 }
 
 input[name='location'] {
@@ -63,7 +82,7 @@ input[name='location'] {
   border-radius: 25px;
 }
 
-#search {
+#search-icon {
   position: absolute;
   right: 0.5em;
   color: black;
@@ -74,21 +93,21 @@ input[name='location'] {
   cursor: pointer;
 }
 
+/* Loading Icon */
 .loader {
+  width: 50px;
+  height: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
   border: 10px solid white;
   border-top: 10px solid #3498db;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
   animation: spin 1s linear infinite;
 }
 
 .loader.hide {
   display: none;
-  /* opacity: 0; */
 }
 
 @keyframes spin {
@@ -101,7 +120,8 @@ input[name='location'] {
 }
 
 /* Main Content - Weather Data */
-main {
+.weather-info {
+  padding: 0.5em 0;
   position: relative;
   margin: 0 auto;
   width: min(600px, 75%);
@@ -111,9 +131,10 @@ main {
   transition: all 250ms ease;
 }
 
-main.hide {
+.weather-info.hide {
   height: 0;
-  /* opacity: 0; */
+  pointer-events: none;
+  opacity: 0;
 }
 
 .weather-data.hide {
@@ -124,22 +145,10 @@ main.hide {
 .weather-data {
   width: 100%;
   height: 100%;
-  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.location {
-  padding-top: 0.25em;
-}
-
-.weather {
-  position: absolute;
-  bottom: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  gap: 15px;
 }
 
 .temperature {
@@ -150,9 +159,22 @@ main.hide {
   font-size: 1.25em;
 }
 
+.weather {
+  width: 200px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.description {
+  text-align: center;
+}
+
 .error-msg {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1.25em;
+  font-weight: 600;
 }
