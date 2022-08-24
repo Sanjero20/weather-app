@@ -2,7 +2,7 @@ const weatherContainer = document.querySelector('.weather-data');
 const weatherTemplate = document.getElementById('weather-template');
 
 function displayDetails(data) {
-  // clear previous displa
+  // clear previous display
   weatherContainer.innerHTML = '';
 
   // Retrieve template
@@ -15,6 +15,7 @@ function displayDetails(data) {
   const icon = template.querySelector('.icon');
   const desc = template.querySelector('.description');
 
+  // Edit template contents
   location.textContent = `${data.name}, ${data.sys.country}`;
 
   const temperature = convertKelvinToCelsius(data.main.temp);
@@ -26,15 +27,16 @@ function displayDetails(data) {
   const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   icon.src = iconURL;
 
+  // Insert to display
   weatherContainer.appendChild(template);
 }
 
 function displayError(error) {
   weatherContainer.innerHTML = '';
-  const h2 = document.createElement('h2');
-  h2.classList.add('error-msg');
-  h2.textContent = error;
-  weatherContainer.appendChild(h2);
+  const errorMsg = document.createElement('p');
+  errorMsg.classList.add('error-msg');
+  errorMsg.textContent = error;
+  weatherContainer.appendChild(errorMsg);
 }
 
 function convertKelvinToCelsius(temp) {
