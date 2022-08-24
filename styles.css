@@ -88,6 +88,7 @@ input[name='location'] {
 
 .loader.hide {
   display: none;
+  /* opacity: 0; */
 }
 
 @keyframes spin {
@@ -107,13 +108,12 @@ main {
   height: 300px;
   background-color: rgb(255, 255, 255, 0.6);
   border-radius: 20px;
-  opacity: 1;
   transition: all 250ms ease;
 }
 
 main.hide {
   height: 0;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .weather-data.hide {
@@ -148,4 +148,11 @@ main.hide {
   gap: 0.25em;
   font-weight: 700;
   font-size: 1.25em;
+}
+
+.error-msg {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

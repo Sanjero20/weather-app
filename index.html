@@ -33,19 +33,24 @@
     <main class="weather-info hide">
       <div class="loader hide"></div>
       <div class="weather-data hide">
-        <h1 class="location"></h1>
-        <div class="temperature">
-          <i class="fa fa-thermometer-empty" aria-hidden="true"> </i>
-          <p class="temp"></p>
-        </div>
-        <div class="weather">
-          <h2 class="type"></h2>
-          <img class="icon" alt="weather-icon.png" />
-          <p class="description"></p>
-        </div>
+        <!-- Insert weather data using javascirpt -->
       </div>
     </main>
 
     <footer>Copyright &copy; Sanjero 2022</footer>
+
+    <!-- Copy this template and append to .weather-data -->
+    <template id="weather-template">
+      <h1 class="location"></h1>
+      <div class="temperature">
+        <i class="fa fa-thermometer-empty" aria-hidden="true"> </i>
+        <p class="temp"></p>
+      </div>
+      <div class="weather">
+        <h2 class="type"></h2>
+        <img class="icon" alt="" />
+        <p class="description"></p>
+      </div>
+    </template>
   </body>
 </html>
