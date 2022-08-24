@@ -24,7 +24,7 @@ function displayDetails(data) {
   type.textContent = data.weather[0].main;
   desc.textContent = data.weather[0].description;
 
-  const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+  const iconURL = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
   icon.src = iconURL;
 
   // Insert to display
