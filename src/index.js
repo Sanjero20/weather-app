@@ -1,55 +1,48 @@
 import { getWeatherData } from './weather';
+import { displayDetails, displayError } from './display';
 
+// Search Bar
 const searchInput = document.querySelector('input[name="location"]');
 const searchBar = document.querySelector('.search-bar');
+
+// Weather Data Container
 const mainContainer = document.querySelector('.weather-info');
 const loadingBar = document.querySelector('.loader');
 
-const location = mainContainer.querySelector('.location');
-const temp = mainContainer.querySelector('.temp');
-
-const type = mainContainer.querySelector('.type');
-const icon = mainContainer.querySelector('.icon');
-const desc = mainContainer.querySelector('.description');
+// Weather Information
+const weatherContainer = document.querySelector('.weather-data');
 
 function fetchData(location) {
-  getWeatherData(location).then(data => {
-    loadingBar.classList.add('hide');
-    setUpWeatherComponent(data);
-  });
+  getWeatherData(location)
+    .then(data => {
+      hideBuffer();
+      displayDetails(data);
+    })
+    .catch(error => {
+      hideBuffer();
+      displayError(error);
+    });
 }
 
 searchBar.addEventListener('submit', e => {
   e.preventDefault();
+  const location = searchInput.value;
+  if (location === '') return;
 
-  if (searchInput.value === '') return;
+  searchInput.value = '';
 
-  searchBar.classList.add('adjust');
   mainContainer.classList.remove('hide');
-  loadingBar.classList.remove('hide');
-
-  clearContainer();
-  fetchData(searchInput.value);
+  showBuffer();
+  fetchData(location);
 });
 
-function setUpWeatherComponent(data) {
-  const component = document.querySelector('.weather-data');
-  component.classList.remove('hide');
-
-  location.textContent = `${data.name}, ${data.sys.country}`;
-  temp.innerHTML = `${(data.main.temp - 273).toFixed(1)}&deg;C`;
-
-  type.textContent = data.weather[0].main;
-  desc.textContent = data.weather[0].description;
-
-  const iconURL = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-  icon.src = iconURL;
+function showBuffer() {
+  searchBar.classList.add('adjust');
+  weatherContainer.classList.add('hide');
+  loadingBar.classList.remove('hide');
 }
 
-function clearContainer() {
-  location.textContent = '';
-  temp.innerHTML = '';
-  type.textContent = '';
-  desc.textContent = '';
-  icon.src = '';
+function hideBuffer() {
+  loadingBar.classList.add('hide');
+  weatherContainer.classList.remove('hide');
 }
